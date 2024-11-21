@@ -12,7 +12,7 @@ $xml_output = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<furnidata>\n";
 
 // Função para gerar SQL
 function generate_sql($generated_id, $name) {
-    $catalog_sql = "INSERT INTO `catalog_items` (`id`, `item_ids`, `page_id`, `catalog_name`, `cost_credits`, `cost_points`, `points_type`, `amount`, `limited_stack`, `limited_sells`, `order_number`, `offer_id`, `song_id`, `extradata`, `have_offer`, `club_only`) VALUES (NULL, '{$generated_id}', 'PAGINA-ID', '{$name}', '0', '0', '5', '1', '0', '0', '1', '-1', '0', '', '1', '0');";
+    $catalog_sql = "INSERT INTO `catalog_items` (`id`, `item_ids`, `page_id`, `catalog_name`, `cost_credits`, `cost_points`, `points_type`, `amount`, `limited_stack`, `limited_sells`, `order_number`, `offer_id`, `song_id`, `extradata`, `have_offer`, `club_only`) VALUES (NULL, '{$generated_id}', 'PAGINA-ID', '{$name}', '".rand(1, 10000)."', '0', '0', '1', '0', '0', '1', '-1', '0', '', '1', '0');";
     
     $items_sql = "INSERT INTO `items_base` (`id`, `sprite_id`, `public_name`, `item_name`, `type`, `width`, `length`, `stack_height`, `allow_stack`, `allow_sit`, `allow_lay`, `allow_walk`, `allow_gift`, `allow_trade`, `allow_recycle`, `allow_marketplace_sell`, `allow_inventory_stack`, `interaction_type`, `interaction_modes_count`, `vending_ids`, `multiheight`, `customparams`, `effect_id_male`, `effect_id_female`, `clothing_on_walk`, `wired_data`) VALUES ('{$generated_id}', '{$generated_id}', '{$name}', '{$name}', 's', '1', '1', '0.00', '1', '0', '0', '0', '1', '1', '0', '0', '1', 'default', '4', '0', '0', '', '0', '0', '', '0');";
     
